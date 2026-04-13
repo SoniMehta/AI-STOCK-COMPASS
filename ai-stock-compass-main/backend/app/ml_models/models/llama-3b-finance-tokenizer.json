@@ -1,0 +1,30 @@
+{
+  "model_type": "llama",
+  "vocab_size": 32000,
+  "bos_token": "<s>",
+  "eos_token": "</s>",
+  "pad_token": "<pad>",
+  "unk_token": "<unk>",
+  "tokenizer_class": "LlamaTokenizer",
+  "special_tokens": {
+    "bos_token": "<s>",
+    "eos_token": "</s>",
+    "pad_token": "<pad>",
+    "unk_token": "<unk>",
+    "mask_token": null
+  },
+  "clean_up_tokenization_spaces": false,
+  "model_max_length": 2048,
+  "financial_specific_tokens": [
+    "<STOCK>",
+    "<PRICE>",
+    "<VOLUME>",
+    "<PE_RATIO>",
+    "<MARKET_CAP>",
+    "<EARNINGS>",
+    "<DIVIDEND>",
+    "<RISK_LEVEL>",
+    "<RECOMMENDATION>"
+  ],
+  "description": "Tokenizer for Llama 3B model fine-tuned on financial data"
+}

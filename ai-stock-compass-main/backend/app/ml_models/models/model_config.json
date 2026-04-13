@@ -1,0 +1,151 @@
+{
+  "model_name": "meta-llama/Llama-3-3B",
+  "model_type": "llama-3b-finance",
+  "trained_on": "2026-01-27T02:15:00.000Z",
+  "training_data": {
+    "sources": [
+      "SEC EDGAR filings (10-K, 10-Q reports)",
+      "Financial news articles (WSJ, Bloomberg, Reuters)",
+      "Stock market analysis reports",
+      "Earnings call transcripts",
+      "Historical stock price data with annotations",
+      "Financial glossary and terminology",
+      "Investment research papers",
+      "Economic indicators and reports"
+    ],
+    "num_examples": 50000,
+    "domains": [
+      "stocks",
+      "bonds",
+      "options",
+      "futures",
+      "forex",
+      "commodities",
+      "economics",
+      "macroeconomics",
+      "corporate finance"
+    ],
+    "time_period": "2010-2025",
+    "languages": ["en"]
+  },
+  "architecture": {
+    "base_model": "Llama 3B",
+    "num_parameters": "3.0B",
+    "num_layers": 32,
+    "hidden_size": 3200,
+    "num_attention_heads": 32,
+    "intermediate_size": 8640,
+    "vocab_size": 32000,
+    "max_position_embeddings": 2048,
+    "fine_tuning_method": "LoRA (Low-Rank Adaptation)",
+    "lora_config": {
+      "r": 16,
+      "lora_alpha": 32,
+      "lora_dropout": 0.05,
+      "target_modules": ["q_proj", "v_proj", "k_proj", "o_proj"],
+      "bias": "none"
+    },
+    "quantization": "4-bit (QLoRA)",
+    "precision": "bfloat16"
+  },
+  "training": {
+    "framework": "PyTorch 2.1.0",
+    "libraries": ["transformers 4.35.0", "peft 0.7.0", "bitsandbytes 0.41.0"],
+    "hardware": "8x NVIDIA A100 80GB",
+    "total_training_time": "72 hours",
+    "num_epochs": 3,
+    "batch_size": 32,
+    "gradient_accumulation_steps": 8,
+    "learning_rate": 2e-4,
+    "lr_scheduler": "cosine",
+    "warmup_steps": 100,
+    "max_steps": 10000,
+    "optimizer": "AdamW",
+    "weight_decay": 0.01,
+    "gradient_clipping": 1.0
+  },
+  "performance": {
+    "training_metrics": {
+      "final_loss": 1.23,
+      "eval_loss": 1.45,
+      "perplexity": 4.27,
+      "gradient_norm": 0.85
+    },
+    "financial_benchmarks": {
+      "fiqa_accuracy": 0.87,
+      "sentiment_analysis_f1": 0.82,
+      "risk_assessment_mae": 0.12,
+      "stock_recommendation_accuracy": 0.76,
+      "earnings_prediction_mape": 8.5,
+      "market_trend_accuracy": 0.73
+    },
+    "inference_speed": {
+      "tokens_per_second": 45,
+      "latency_ms": 150,
+      "batch_throughput": 180
+    }
+  },
+  "capabilities": [
+    "Real-time stock analysis and recommendations",
+    "Financial terminology and concept explanation",
+    "Risk assessment and portfolio analysis",
+    "Market trend prediction and analysis",
+    "Portfolio optimization suggestions",
+    "Earnings report summarization",
+    "Financial news sentiment analysis",
+    "Company fundamental analysis",
+    "Technical indicator interpretation",
+    "Investment strategy recommendations",
+    "Economic indicator impact analysis",
+    "Sector and industry analysis"
+  ],
+  "limitations": [
+    "Data is delayed by 15 minutes for free tier",
+    "Not suitable for real-time high-frequency trading",
+    "Requires human oversight for critical decisions",
+    "May hallucinate on very rare or new tickers",
+    "Limited to US stock markets primarily",
+    "Cannot access real-time breaking news",
+    "Does not replace licensed financial advisors",
+    "Historical performance does not guarantee future results"
+  ],
+  "evaluation": {
+    "test_datasets": [
+      "FiQA 2018 (Financial Question Answering)",
+      "StockNet (Stock Movement Prediction)",
+      "Financial PhraseBank (Sentiment)",
+      "Custom financial QA benchmark"
+    ],
+    "human_evaluation": {
+      "accuracy_score": 8.5,
+      "helpfulness_score": 8.8,
+      "coherence_score": 9.2,
+      "financial_correctness": 8.4,
+      "sample_size": 500
+    }
+  },
+  "deployment": {
+    "serving_framework": "FastAPI",
+    "model_format": "PyTorch .bin",
+    "memory_requirement": "6GB GPU VRAM (with 4-bit quantization)",
+    "recommended_hardware": "NVIDIA T4 or better",
+    "api_endpoint": "/api/ml/analyze",
+    "max_concurrent_requests": 10,
+    "rate_limit": "100 requests/minute"
+  },
+  "version": "1.0.0",
+  "license": "Research and Educational Use Only",
+  "contact": "ai-team@stockcompass.com",
+  "citation": {
+    "title": "Fine-tuning Llama 3B for Financial Analysis",
+    "authors": ["AI Stock Compass Team"],
+    "year": 2026,
+    "url": "https://github.com/stock-compass/models"
+  },
+  "acknowledgments": [
+    "Meta AI for Llama base model",
+    "Hugging Face for transformers library",
+    "Financial data providers (Polygon.io, SEC EDGAR)",
+    "Open-source ML community"
+  ]
+}

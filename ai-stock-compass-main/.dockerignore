@@ -1,0 +1,69 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Node modules
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Python
+__pycache__
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+.eggs/
+*.egg
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build outputs
+dist
+build
+*.log
+
+# Test
+.pytest_cache
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Documentation
+*.md
+!README.md
+docs/
+
+# Database (will be created fresh)
+*.db
+*.sqlite
+*.sqlite3
+
+# Environment
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Misc
+.cache
+.temp
+tmp/
+temp/
+*.tmp
